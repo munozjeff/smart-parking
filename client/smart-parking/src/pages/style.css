@@ -1,0 +1,26 @@
+.form-user{
+    width: 350px;
+    padding: 30px;
+}
+.form-user h1{
+    color: black;
+}
+.form-user p{
+    color: #4F4F4F;
+    font-size: 1.5rem;
+}
+.form-user a{
+    color: #4F4F4F;
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+    margin: 10px auto 10px auto;
+}
+.form-user input{
+    width: 100%;
+    margin: 5px auto 5px auto;
+}
+.form-user button{
+    margin: auto;
+    margin: 10px auto 5px auto;
+}
