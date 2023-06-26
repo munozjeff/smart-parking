@@ -8,9 +8,9 @@ function App() {
     <>
       {/* <LogUpUser></LogUpUser> */}
       <Routes>
-      <Route path="/" exact element={<LoginUser/>}/>
+        <Route path="/" exact element={<LoginUser/>}/>
         <Route path="login" element={<LoginUser/>} />
-          <Route path="logup" element={<LogUpUser/>} />
+        <Route path="logup" element={<LogUpUser/>} />
           
           {/* <Route index element={<Home />} /> */}
           {/* <Route path="about" element={<About />} /> */}
