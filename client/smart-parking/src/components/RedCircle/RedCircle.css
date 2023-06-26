@@ -1,0 +1,17 @@
+.circle-red-container{
+    background: #FE4D4D;
+    border-radius: 100%;
+    width: 12rem;
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 1.1rem; 
+    padding: 12px;
+    cursor: pointer;
+    
+}
+.circle-text h2{
+    text-align: center;
+}
