@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { LoginUser } from './pages/LoginUser'
 import { LogUpUser } from './pages/logUpUser'
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Motociclista } from './pages/motociclista';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" exact element={<LoginUser/>}/>
         <Route path="login" element={<LoginUser/>} />
           <Route path="logup" element={<LogUpUser/>} />
+          <Route path="motociclista" element={<Motociclista/>}/>
           
           {/* <Route index element={<Home />} /> */}
           {/* <Route path="about" element={<About />} /> */}

@@ -5,7 +5,7 @@ import './YellowCard.css'
 function YellowCard(props){
     return(
 
-        <div className="card-container">
+        <div className="card-container-yellow">
             <figure className="img-container">
                 <img src={props.imagen} alt="Card"/>
             </figure>
