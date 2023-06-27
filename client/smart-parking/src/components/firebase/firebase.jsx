@@ -1,6 +1,6 @@
 import React from 'react';
 import { initializeApp } from "firebase/app";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
 import "firebase/firestore";
@@ -20,8 +20,20 @@ const auth=getAuth(app)
 const write = async (user)=>await setDoc(doc(db, "users", user.uid), {
     email: user.email,
     userName: user.userName,
-    data: user.data
+    data: user.data,
+    rol: "motociclista"
 });
+
+const loadData= async(userUID)=>{
+    const docRef = doc(db, "users", userUID);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        return docSnap.data()
+    } else {
+    // docSnap.data() will be undefined in this case
+        return null
+    }
+}
 
 const login =(dataLogin)=> signInWithEmailAndPassword(auth, dataLogin.email, dataLogin.password)
     .then((userCredential) => {
@@ -29,7 +41,7 @@ const login =(dataLogin)=> signInWithEmailAndPassword(auth, dataLogin.email, dat
         const user = userCredential.user;
         const result={
             sesion: true,
-            email: user.uid,
+            uid: user.uid,
             massage: "Se inicio sesión"
         }
         return result
@@ -49,7 +61,7 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
 .then((userCredential) => {
     //Signed in 
     const user = userCredential.user;
-    return true
+    return user
     //...
 })
 .catch((error) => {
@@ -59,4 +71,4 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
     return false
     //..
 });
-export {app,write,login,logup};
+export {app,write,login,logup,loadData};
