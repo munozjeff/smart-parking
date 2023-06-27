@@ -71,13 +71,4 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
     return false
     //..
 });
-<<<<<<< HEAD
-
-
-
-
-
-export {app,write,login,logup,writeMoto};
-=======
 export {app,write,login,logup,loadData};
->>>>>>> 8d612c360b6117047acad1c26aa815958d7b71b0
