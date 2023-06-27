@@ -36,7 +36,7 @@ const LogUpUser=()=>{
     // });
 
     useEffect(()=>{
-        if(user!=null){
+        if(user){
             const dataUser={
                 uid:user.uid,
                 email:user.email,
@@ -54,8 +54,8 @@ const LogUpUser=()=>{
             email: email,
             password: password
         }
-        const userSesion = await logup(sesionData)
-        setSesion(userSesion)
+        const user = await logup(sesionData)
+        setUser(user)
     }
 
     return(

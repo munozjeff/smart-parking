@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app, login} from '../components/firebase/firebase';
+import { app, login, loadData} from '../components/firebase/firebase';
 import "firebase/firestore";
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const LoginUser = ()=>{   
-    const [sesion,setSesion] = useState(false)
+    const [sesion,setSesion] = useState(null)
+    const [dataUser,setDataUser] = useState(null)
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    let navigate = useNavigate();
     const handlerOnChangueEmail=()=>{
         const email = event.target.value
         setEmail(email)
@@ -23,16 +26,40 @@ const LoginUser = ()=>{
             password: password
         }
         const result = await login(dataLogin);
-        setSesion(result.sesion)
-        console.log(result.sesion);
+        setSesion(result)
+        console.log(result.uid);
     }
+
+    useEffect(()=>{
+        if(sesion != null){
+            async function load(uid){
+                    const load = await loadData(uid)
+                    setDataUser(load)
+            }
+            load(sesion.uid)
+            // setdataUser(load(sesion.uid))
+        }
+    },[sesion])
+
+    useEffect(()=>{
+        if(dataUser){
+            console.log(dataUser);
+            if(dataUser.rol = "motociclista"){
+                navigate("/motociclista")
+            }
+            else if(dataUser.rol = "vigilante"){
+                navigate("/vigilante")
+            }
+        }
+    },[dataUser])
+
     return(
         <div className='form-user'>
             <h1 className='h1-form-user'>PARQUEADERO INTELIGENTE</h1>
             <p className='p-form-user'>Inicia sesión para usar nuestros servicios</p>
             <input className='input-inputDsg' type='email' placeholder="Email" onChange={handlerOnChangueEmail}/>
             <input className='input-inputDsg' type='password' placeholder='Password' onChange={handlerOnChanguePassword}/>
-            <a className='a-form-user' href='#'>¡Registrate Aqui!</a>
+            <Link to="/logup">¡Registrate Aqui!</Link>
             <button className='btn-ButtonDsg' onClick={hanlderLogIn}>LogIn</button>
         </div>
     )
