@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './RegistrarMotocicleta.css'
 import "firebase/firestore";
 import { writeMoto } from "../components/firebase/firebase";
-import {MyComponent} from '../components/QR/GenerarQR';
+// import {MyComponent} from '../components/QR/GenerarQR';
 
 
 function RegistrarMotocicleta(){
@@ -42,7 +42,7 @@ function RegistrarMotocicleta(){
                 
 
             </form>
-            {showQR && <MyComponent data={form} />}
+            {/* {showQR && <MyComponent data={form} />} */}
         </div>
         
 
