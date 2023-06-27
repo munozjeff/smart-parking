@@ -1,19 +1,26 @@
 import React, {useState} from "react";
 import './RegistrarMotocicleta.css'
 import "firebase/firestore";
+import { writeMoto } from "../components/firebase/firebase";
+import {MyComponent} from '../components/QR/GenerarQR';
+
 
 function RegistrarMotocicleta(){
 
 
     const [form,setForm] = useState({});
+    const [showQR, setShowQR] = useState(false);
+
 
     const handlerFormData=()=>{
         const {name,value}=event.target;
         setForm({...form,[name]:value})
     }
-    const handlerSendData=()=>{
+    const handlerSendData= async()=>{
         event.preventDefault()
-        console.log(form);
+        const moto = form;
+        const registrarMoto = await writeMoto(moto);
+        setShowQR(true);
     }
     
     return(
@@ -32,9 +39,10 @@ function RegistrarMotocicleta(){
                 <input src="./src/assets/files.png" id="motoImage" value={form.motoImage || ""} name="motoImage" className="inputs" type="file" placeholder="Imagen de la moto" alt="imagen" onChange={handlerFormData}></input>
                 <input id="passwordRegister"  value={form.passwordRegister || ""} name="passwordRegister" className="inputs" type="password" placeholder="Verificar Contraseña" onChange={handlerFormData}></input>
                 <button id="btn-submit" type="submit"> Registar Motocicleta</button>
-
+                
 
             </form>
+            {showQR && <MyComponent data={form} />}
         </div>
         
 

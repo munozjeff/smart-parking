@@ -23,6 +23,15 @@ const write = async (user)=>await setDoc(doc(db, "users", user.uid), {
     data: user.data
 });
 
+
+const writeMoto = async (moto)=>await setDoc(doc(db, "motos", moto.placa), {
+    placa: moto.placa,
+    tarjeta: moto.tarjeta,
+    motoImage: moto.motoImage,
+    passwordRegister: moto.passwordRegister
+});
+
+
 const login =(dataLogin)=> signInWithEmailAndPassword(auth, dataLogin.email, dataLogin.password)
     .then((userCredential) => {
         // Signed in 
@@ -59,4 +68,9 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
     return false
     //..
 });
-export {app,write,login,logup};
+
+
+
+
+
+export {app,write,login,logup,writeMoto};
