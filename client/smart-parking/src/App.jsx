@@ -3,6 +3,7 @@ import { LoginUser } from './pages/LoginUser'
 import { LogUpUser } from './pages/logUpUser'
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { Motociclista } from './pages/motociclista';
+import { RegistrarMotocicleta } from './pages/RegistrarMotocicleta';
 import { Vigilante } from './pages/vigilante';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="logup" element={<LogUpUser/>} />
           <Route path="motociclista" element={<Motociclista/>}/>
           <Route path="vigilante" element={<Vigilante/>}/>
+          <Route path="registro-moto" element={<RegistrarMotocicleta/>}/>
           
           {/* <Route index element={<Home />} /> */}
           {/* <Route path="about" element={<About />} /> */}
