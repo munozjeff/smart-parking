@@ -47,6 +47,9 @@ const LoginUser = ()=>{
             if(dataUser.rol = "motociclista"){
                 navigate("/motociclista")
             }
+            else if(dataUser.rol = "vigilante"){
+                navigate("/vigilante")
+            }
         }
     },[dataUser])
 

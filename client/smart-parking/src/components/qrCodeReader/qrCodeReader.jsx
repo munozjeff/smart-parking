@@ -1,35 +1,46 @@
 // versi "react-qr-reader" 1.0.0. component API harus disesuaikan dengan yg baru
 import { useEffect, useState } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
+import { useNavigate } from 'react-router-dom';
 
 const QrScan = () => {
   const [scanResult,setScanResult] = useState(null)
+  const [scanner,setScanner] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(()=>{
     console.log("se ejecuta");
-    const scanner = new Html5QrcodeScanner('reader',{qrbox:400,fps:5})
-    scanner.render(success, error)
-
-    function success(result){
-      scanner.clear
-      setScanResult(result)
-    }
-    function error(err){
-      // console.warn(err)
-      scanner.clear
-    }
+    setScanner(new Html5QrcodeScanner('reader',{qrbox:400,fps:5}))
   },[])
 
-  
+  useEffect(()=>{
+    if(scanner){
+      scanner.render(success, error)
+      function success(result){
+        scanner.clear
+        setScanResult(result)
+      }
+      function error(err){
+        // console.warn(err)
+        scanner.clear
+        scanner.stop();
+      }
+    }
+    return () => {
+      if (scanner) {
+          scanner.clear()
+          scanner.stop()
+      }
+  }
+  },[scanner])
   
   return(
     <>
-      <h1>QR SCANER</h1>
+      {/* <h1>QR SCANER</h1> */}
       {scanResult 
-      ? <div>
-        {/* Success: <a href={scanResult}>{scanResult}</a> */}
-      </div>
-      : <div id="reader" style={{width:"300px"}}></div>
+      ? navigate("/vigilante")
+      //: <div style={{width:"100vw",height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><div style={{backgroundColor:"white"}}><div id="reader" style={{width:"70vw",height:"70vw"}}></div></div></div>
+        :<div id="reader" style={{width:"70vw",height:"70vw"}}></div>
       }
       
     </>

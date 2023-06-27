@@ -61,3 +61,6 @@ body {
 a:hover{
   color: black;
 }
+#reader__dashboard_section{
+  margin-top: 5vw;
+}
