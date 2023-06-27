@@ -5,7 +5,6 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
 import "firebase/firestore";
 
-
 const firebaseConfig = {
     apiKey: "AIzaSyC_zWbgykQZFZgwO5yTD_X5BZgpUvWexVU",
     authDomain: "parqueadero-inteligente-ccb7a.firebaseapp.com",
