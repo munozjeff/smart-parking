@@ -24,6 +24,12 @@ const write = async (user)=>await setDoc(doc(db, "users", user.uid), {
     rol: "motociclista"
 });
 
+const writeMoto = async (moto)=>await setDoc(doc(db, "motos", moto.placa), {
+    placa: moto.placa,
+    tarjeta: moto.tarjeta,
+    motoImage: moto.motoImage,
+});
+
 const loadData= async(userUID)=>{
     const docRef = doc(db, "users", userUID);
     const docSnap = await getDoc(docRef);
@@ -71,4 +77,6 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
     return false
     //..
 });
-export {app,write,login,logup,loadData};
+
+
+export {app,write,login,logup,writeMoto,loadData};
