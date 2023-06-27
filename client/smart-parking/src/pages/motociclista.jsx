@@ -7,8 +7,6 @@ import { RedCircle } from "../components/RedCircle";
 
 function Motociclista(){
     return(
-        
-
         <div className="main-container">
 
             <div className="text1">

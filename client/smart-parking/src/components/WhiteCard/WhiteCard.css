@@ -11,6 +11,8 @@
     font-size: 1.3rem;
     background: white;
     cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .card-image{

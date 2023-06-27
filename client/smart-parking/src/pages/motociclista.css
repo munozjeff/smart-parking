@@ -4,18 +4,17 @@
     height: auto;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    
-
+    position: relative;
+    z-index: 1;
+    background-color: white;
 }
 
 .cards-container{
-
+    width: 100vw;
     display: flex;
     flex-direction: row;
-    gap: 10rem;
     flex-wrap: wrap;
-    
-
+    justify-content: space-around;
 }
 
 .text1{
@@ -32,4 +31,27 @@
     font-size: 3rem;
     font-weight: bold;
 }
-
+.first-service{
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.cards-container.first-service{
+    display: flex;
+    justify-content: right;
+}
+.first-service .circle-red-container{
+    margin-right: 8%;
+}
+.main-container>figure{
+    position: absolute;
+    z-index: 2;
+    bottom: 80px;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.servicios{
+    z-index: 3;
+}
