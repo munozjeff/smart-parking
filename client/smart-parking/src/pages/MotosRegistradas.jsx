@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './MotosRegistradas.css'
 import {getFirestore,collection,getDocs, QuerySnapshot} from "firebase/firestore";
-import {app} from '../components/firebase/firebase.jsx'
 import QRCode from 'qrcode.react';
 import {getAuth, onAuthStateChanged } from "firebase/auth";
 
