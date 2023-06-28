@@ -3,8 +3,11 @@ import { WhiteCard } from "../components/WhiteCard";
 import { YellowCard } from "../components/YellowCard";
 import { YellowCircle } from "../components/YellowCircle";
 import { RedCircle } from "../components/RedCircle";
+import { useNavigate } from 'react-router-dom';
+
 
 function Vigilante(){
+    const navigate = useNavigate()
     return(
         <div className="main-container">
 
@@ -18,6 +21,7 @@ function Vigilante(){
                 <WhiteCard
                     imagen={`./src/assets/QR.png`}
                     text={"Scan QR"}
+                    link="/qrScanner"
                 />
                 <WhiteCard
                     imagen={`./src/assets/QuestionMark.png`}
@@ -41,7 +45,6 @@ function Vigilante(){
                         text="Permitir salida"
                     />
                 </div>
-
             </div>
             <figure>
                 <img src="./src/assets/moto.png" alt="" />

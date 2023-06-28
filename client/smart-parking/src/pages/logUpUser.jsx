@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { app, write, logup} from '../components/firebase/firebase';
-
-
-
-
-
-
+import { write, logup} from '../components/firebase/firebase';
 
 const LogUpUser=()=>{
     const [user,setUser]=useState(null)
@@ -13,6 +7,7 @@ const LogUpUser=()=>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [sesion, setSesion] = useState('');
+    
     // Add a new document in collection "cities"
     
     const handlerOnChangueEmail=()=>{

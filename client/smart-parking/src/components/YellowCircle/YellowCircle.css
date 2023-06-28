@@ -10,5 +10,10 @@
     font-size: 1.1rem;
     padding: 12px;
     cursor: pointer;
-    
+}
+.circle-enable{
+    background-color: grey;
+}
+.circle-disable{
+    background-color: #FED94D;
 }

@@ -60,6 +60,7 @@ const login =(dataLogin)=> signInWithEmailAndPassword(auth, dataLogin.email, dat
         const result={
             sesion: true,
             uid: user.uid,
+            rol: user.rol,
             massage: "Se inicio sesión"
         }
         return result
