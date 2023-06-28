@@ -9,6 +9,7 @@ import { QrScanner } from './pages/qrScanner';
 import { MotosRegistradas } from './pages/MotosRegistradas';
 
 function App() {
+ 
   return (
     <>
       {/* <LogUpUser></LogUpUser> */}

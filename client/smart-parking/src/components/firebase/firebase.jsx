@@ -17,6 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth=getAuth(app)
+
 const write = async (user)=>await setDoc(doc(db, "users", user.uid), {
     email: user.email,
     userName: user.userName,
