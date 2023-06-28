@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './style.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app, login, loadData} from '../components/firebase/firebase';
+import {login, loadData} from '../components/firebase/firebase';
 import "firebase/firestore";
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../components/AuthProvider/AuthContext';
 
 
 const LoginUser = ()=>{   
@@ -11,6 +12,7 @@ const LoginUser = ()=>{
     const [dataUser,setDataUser] = useState(null)
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const { logIn } = useContext(AuthContext);
     let navigate = useNavigate();
     const handlerOnChangueEmail=()=>{
         const email = event.target.value
@@ -25,7 +27,7 @@ const LoginUser = ()=>{
             email: email,
             password: password
         }
-        const result = await login(dataLogin);
+        const result = await logIn(email, password);;
         setSesion(result)
     }
     useEffect(()=>{

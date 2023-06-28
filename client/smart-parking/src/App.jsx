@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import { LoginUser } from './pages/LoginUser'
 import { LogUpUser } from './pages/logUpUser'
 import { Routes, Route, Outlet, Link } from "react-router-dom";
@@ -7,12 +7,15 @@ import { RegistrarMotocicleta } from './pages/RegistrarMotocicleta';
 import { Vigilante } from './pages/vigilante';
 import { QrScanner } from './pages/qrScanner';
 import { MotosRegistradas } from './pages/MotosRegistradas';
+import { initializeApp } from 'firebase/app';
+import { getAuth, setPersistence, browserSessionPersistence, onAuthStateChanged  } from 'firebase/auth';
+import { AuthProvider } from './components/AuthProvider/AuthContext';
 
 function App() {
- 
+  
   return (
     <>
-      {/* <LogUpUser></LogUpUser> */}
+      <AuthProvider>
       <Routes>
         <Route path="/" exact element={<LoginUser/>}/>
         <Route path="login" element={<LoginUser/>} />
@@ -32,6 +35,8 @@ function App() {
               routes for. */}
           {/* <Route path="*" element={<NoMatch />} /> */}
       </Routes>
+      </AuthProvider>
+      
     </>
   )
 }
