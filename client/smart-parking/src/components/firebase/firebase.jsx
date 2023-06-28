@@ -30,6 +30,7 @@ const writeMoto = async (moto)=>await setDoc(doc(db, "motos", moto.placa), {
     motoImage: moto.motoImage,
 });
 
+
 const loadData= async(userUID)=>{
     const docRef = doc(db, "users", userUID);
     const docSnap = await getDoc(docRef);
@@ -40,6 +41,17 @@ const loadData= async(userUID)=>{
         return null
     }
 }
+
+// const loadMotos = async(placa)=>{
+//     const docRef = doc(db,"motos", placa);
+//     const docSnap = await getDoc(docRef);
+//     if(docSnap.exists()){
+//         return docSnap.data()
+
+//     }else{
+//         return null
+//     }
+// }
 
 const login =(dataLogin)=> signInWithEmailAndPassword(auth, dataLogin.email, dataLogin.password)
     .then((userCredential) => {
@@ -70,6 +82,7 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
     return user
     //...
 })
+
 .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -77,6 +90,25 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
     return false
     //..
 });
+
+
+
+
+// const motosRegistradas = ()=>mostrarMotos(){
+//     useEffect(()=>{
+
+//         const coleccionMotos = firebase.firestore().collection('motos');
+//         coleccionMotos.get().then((querySnapshot)=>{
+//             const datosMotos = [];
+//             querySnapshot.forEach((doc)=>{
+//                 const datos = doc.data();
+//                 datosMotos.push(datos);
+//             });
+//             setMotos(datosMotos);
+//         });
+//     },[]    );
+// }
+
 
 
 export {app,write,login,logup,writeMoto,loadData};

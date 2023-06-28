@@ -6,6 +6,7 @@ import { Motociclista } from './pages/motociclista';
 import { RegistrarMotocicleta } from './pages/RegistrarMotocicleta';
 import { Vigilante } from './pages/vigilante';
 import { QrScan } from './components/qrCodeReader/qrCodeReader';
+import { MotosRegistradas } from './pages/MotosRegistradas';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="vigilante" element={<Vigilante/>}/>
           <Route path="registro-moto" element={<RegistrarMotocicleta/>}/>
           <Route path="qr-reader" element={<QrScan/>}/>
+          <Route path='motos-registradas' element={<MotosRegistradas/>}/>
           
           {/* <Route index element={<Home />} /> */}
           {/* <Route path="about" element={<About />} /> */}
