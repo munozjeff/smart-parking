@@ -3,16 +3,22 @@ import './MotosRegistradas.css'
 import {getFirestore,collection,getDocs, QuerySnapshot} from "firebase/firestore";
 import {app} from '../components/firebase/firebase.jsx'
 import QRCode from 'qrcode.react';
+import {getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 
 const MotosRegistradas = ()=>{
     const [motos, setMotos] = useState([]);
     const [selectedMoto, setSelectedMoto] = useState(null);
+    const [user, setUser] = useState([]);
+    const [dataUser, setDataUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null);
+    
 
     useEffect(()=>{
         const motosDB = getFirestore();
         const queryCollection = collection(motosDB,'motos');
+        
 
         getDocs(queryCollection)
         .then((QuerySnapshot)=>{
@@ -26,7 +32,27 @@ const MotosRegistradas = ()=>{
         } )
         // getDocs(queryCollection)
         // .then(res => setMotos(res.docs.map(moto =>({id:moto.id, ...moto.data()})) ))
+
+
     },[])
+
+
+    useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          if (user) {
+            setCurrentUser(user);
+          } else {
+            setCurrentUser(null);
+          }
+        });
+    
+        return () => {
+          unsubscribe();
+        };
+      }, []);
+    
+
 
     return(
 
@@ -41,6 +67,7 @@ const MotosRegistradas = ()=>{
                     <tr>
                         <th>Imagen Moto </th>
                         <th>Placa</th>
+                        <th>Usuario</th>
                         <th>QR</th>
 
                     </tr>
@@ -53,6 +80,7 @@ const MotosRegistradas = ()=>{
                             <img src={moto.motoImage} alt="MotoImg" width="50" height="50" />
                         </td>
                         <td>{moto.placa}</td>
+                        <td>{currentUser ? currentUser.email : ''}</td>
                         <td><button className="QR-button" onClick={() => setSelectedMoto(moto)}>Generar QR</button></td>
                         </tr>
                     ))}

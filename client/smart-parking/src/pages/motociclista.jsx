@@ -4,6 +4,7 @@ import { YellowCard } from "../components/YellowCard";
 import './motociclista.css'
 import { YellowCircle } from "../components/YellowCircle";
 import { RedCircle } from "../components/RedCircle";
+import {UseNavigate}
 
 function Motociclista(){
     return(
