@@ -4,9 +4,13 @@ import { YellowCard } from "../components/YellowCard";
 import './motociclista.css'
 import { YellowCircle } from "../components/YellowCircle";
 import { RedCircle } from "../components/RedCircle";
-import {UseNavigate}
+import { useNavigate } from 'react-router-dom';
 
 function Motociclista(){
+
+    const navigate = useNavigate();
+
+
     return(
         <div className="main-container">
 
@@ -20,11 +24,14 @@ function Motociclista(){
                 <WhiteCard
                 imagen={`./src/assets/QR.png`}
                 text={"Generar QR"}
+                link={"/motos-registradas"}
                 />
 
                 <YellowCard
                     imagen={'./src/assets/Vector.png'}
-                        text={"Moto"}
+                    text={"Moto"}
+                    link={"/motos-registradas"}
+
                 />    
 
                 <WhiteCard
@@ -39,6 +46,7 @@ function Motociclista(){
                 <div className="cards-container">
                     <YellowCircle
                         text="Añade tu moto"
+                        link={"/registro-moto"}
                     />
                     <RedCircle
                         text="Alertar mal parqueo"
