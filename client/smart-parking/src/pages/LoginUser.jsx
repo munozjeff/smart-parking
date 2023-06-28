@@ -27,8 +27,11 @@ const LoginUser = ()=>{
         }
         const result = await login(dataLogin);
         setSesion(result)
-        console.log(result.uid);
     }
+    useEffect(()=>{
+        const auth=getAuth()
+        auth.signOut()
+    },[])
 
     useEffect(()=>{
         if(sesion != null){
@@ -44,10 +47,11 @@ const LoginUser = ()=>{
     useEffect(()=>{
         if(dataUser){
             console.log(dataUser);
-            if(dataUser.rol = "motociclista"){
+            console.log(dataUser.rol);
+            if(dataUser.rol === "motociclista"){
                 navigate("/motociclista")
             }
-            else if(dataUser.rol = "vigilante"){
+            else if(dataUser.rol === "vigilante"){
                 navigate("/vigilante")
             }
         }

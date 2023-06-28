@@ -5,7 +5,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { Motociclista } from './pages/motociclista';
 import { RegistrarMotocicleta } from './pages/RegistrarMotocicleta';
 import { Vigilante } from './pages/vigilante';
-import { QrScan } from './components/qrCodeReader/qrCodeReader';
+import { QrScanner } from './pages/qrScanner';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="motociclista" element={<Motociclista/>}/>
           <Route path="vigilante" element={<Vigilante/>}/>
           <Route path="registro-moto" element={<RegistrarMotocicleta/>}/>
-          <Route path="qr-reader" element={<QrScan/>}/>
+          <Route path="qrScanner" element={<QrScanner/>}/>
           
           {/* <Route index element={<Home />} /> */}
           {/* <Route path="about" element={<About />} /> */}
