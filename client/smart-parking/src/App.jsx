@@ -7,6 +7,7 @@ import { RegistrarMotocicleta } from './pages/RegistrarMotocicleta';
 import { Vigilante } from './pages/vigilante';
 import { QrScanner } from './pages/qrScanner';
 import { MotosRegistradas } from './pages/MotosRegistradas';
+import { EnviarReporte } from './pages/EnviarReporte';
 import { initializeApp } from 'firebase/app';
 import { getAuth, setPersistence, browserSessionPersistence, onAuthStateChanged  } from 'firebase/auth';
 import { AuthProvider } from './components/AuthProvider/AuthContext';
@@ -25,6 +26,7 @@ function App() {
           <Route path="registro-moto" element={<RegistrarMotocicleta/>}/>
           <Route path="qrScanner" element={<QrScanner/>}/>
           <Route path='motos-registradas' element={<MotosRegistradas/>}/>
+          <Route path='enviar-reporte' element={<EnviarReporte/>}/>
           
           {/* <Route index element={<Home />} /> */}
           {/* <Route path="about" element={<About />} /> */}

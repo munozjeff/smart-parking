@@ -39,7 +39,7 @@ function RegistrarMotocicleta(){
                 <input src="./src/assets/files.png" id="motoImage" value={form.motoImage || ""} name="motoImage" className="inputs" type="file" placeholder="Imagen de la moto" alt="imagen" onChange={handlerFormData}></input>
                 <input id="passwordRegister"  value={form.passwordRegister || ""} name="passwordRegister" className="inputs" type="password" placeholder="Verificar Contraseña" onChange={handlerFormData}></input>
                 <button id="btn-submit" type="submit"> Registar Motocicleta</button>
-                
+
 
             </form>
             {/* {showQR && <MyComponent data={form} />} */}
