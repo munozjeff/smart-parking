@@ -30,6 +30,11 @@ const writeMoto = async (moto)=>await setDoc(doc(db, "motos", moto.placa), {
     motoImage: moto.motoImage,
 });
 
+const writeReport = async (report)=> await setDoc(doc(db,"reportes",report.Imagen),{
+    Fecha: report.Fecha,
+    Imagen: report.Imagen,
+})
+
 
 const loadData= async(userUID)=>{
     const docRef = doc(db, "users", userUID);
@@ -112,4 +117,4 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
 
 
 
-export {app,write,login,logup,writeMoto,loadData};
+export {app,write,login,logup,writeMoto,loadData,writeReport};
