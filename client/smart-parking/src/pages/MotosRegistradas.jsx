@@ -59,20 +59,25 @@ const MotosRegistradas = ()=>{
                     </thead>
 
                     <tbody>
-                        {motos.map((moto, index) => {
-                            const motoWithUser = { ...moto, user: currentUser ? currentUser.email : '' };
+                    {motos.filter(moto => moto.user === (currentUser ? currentUser.email : '')).map((moto, index) => {
+                        const motoWithUser = { ...moto, user: currentUser ? currentUser.email : '' };
 
-                            return (
-                                <tr key={index}>
-                                    <td>
-                                        <img src={moto.motoImage} alt="MotoImg" width="50" height="50" />
-                                    </td>
-                                    <td>{moto.placa}</td>
-                                    <td>{motoWithUser.user}</td>
-                                    <td><button className="QR-button" onClick={() => setSelectedMoto(motoWithUser)}>Generar QR</button></td>
-                                </tr>
-                            );
+                        return (
+                            <tr key={index}>
+                            <td>
+                                <img src={moto.motoImage} alt="MotoImg" width="50" height="50" />
+                            </td>
+                            <td>{moto.placa}</td>
+                            <td>{motoWithUser.user}</td>
+                            <td>
+                                <button className="QR-button" onClick={() => setSelectedMoto(motoWithUser)}>
+                                Generar QR
+                                </button>
+                            </td>
+                            </tr>
+                        );
                         })}
+
                     </tbody>
                 </table>
             </div>

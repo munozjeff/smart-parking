@@ -31,6 +31,7 @@ const writeMoto = async (moto)=>await setDoc(doc(db, "motos", moto.placa), {
     placa: moto.placa,
     tarjeta: moto.tarjeta,
     motoImage: moto.motoImage,
+    user:moto.emailRegister,
 });
 
 const writeReport = async (report)=> await setDoc(doc(db,"reportes",""+Date.parse(report.fecha)),{

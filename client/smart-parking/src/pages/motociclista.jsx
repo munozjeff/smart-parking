@@ -32,7 +32,7 @@ function Motociclista(){
                     text={"Moto"}
                     link={"/motos-registradas"}
 
-                />    
+                />
 
                 <WhiteCard
                 imagen={`./src/assets/QuestionMark.png`}
@@ -50,14 +50,13 @@ function Motociclista(){
                     />
                     <RedCircle
                         text="Alertar mal parqueo"
+                        link="/enviar-reporte"
                     />
                 </div>
 
             </div>
         </div>
-        
-            
-        
+
     )
 
 }

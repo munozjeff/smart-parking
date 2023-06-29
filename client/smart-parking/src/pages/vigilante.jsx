@@ -36,6 +36,7 @@ function Vigilante(){
                 <div className="cards-container first-service">
                     <RedCircle
                         text="Alertar mal parqueo"
+                        link="/enviar-reporte"
                     />
                 </div>
 
