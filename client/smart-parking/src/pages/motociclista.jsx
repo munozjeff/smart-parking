@@ -22,20 +22,20 @@ function Motociclista(){
             <div className="cards-container">
 
                 <WhiteCard
-                imagen={`./src/assets/QR.png`}
+                imagen={`https://i.imgur.com/BOCDufH.png`}
                 text={"Generar QR"}
                 link={"/motos-registradas"}
                 />
 
                 <YellowCard
-                    imagen={'./src/assets/Vector.png'}
+                    imagen={'https://i.imgur.com/kC51mnv.png'}
                     text={"Moto"}
                     link={"/motos-registradas"}
 
                 />
 
                 <WhiteCard
-                imagen={`./src/assets/QuestionMark.png`}
+                imagen={`https://i.imgur.com/snfT9Pr.png`}
                 text={"Espacios disponibles"}
                 />
             </div>
