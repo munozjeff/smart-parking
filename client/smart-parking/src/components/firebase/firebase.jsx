@@ -33,7 +33,9 @@ const writeMoto = async (moto)=>await setDoc(doc(db, "motos", moto.placa), {
     motoImage: moto.motoImage,
     user:moto.emailRegister,
 });
-
+const open_close = async (data)=>await setDoc(doc(db, "open_close", data.access), {
+    value: data.value,
+});
 const writeReport = async (report)=> await setDoc(doc(db,"reportes",""+Date.parse(report.fecha)),{
     Fecha: report.fecha,
     Imagen: report.imageMoto,
@@ -120,5 +122,5 @@ const logup = (dataLogin)=>createUserWithEmailAndPassword(auth, dataLogin.email,
 
 
 
-export {app,write,login,logup,writeMoto,loadData,writeReport};
+export {app,write,login,logup,writeMoto,loadData,writeReport,open_close};
 

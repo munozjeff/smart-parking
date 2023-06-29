@@ -2,16 +2,16 @@ import React from 'react';
 import "./style.css"
 
 
-function ViewInfoQr(){
+function ViewInfoQr({data}){
     return(
         <div id='viewInfoQrContainer'>
             <div className='infoItem'>
                 <span>Propietario</span>
-                <span>name</span>
+                <span>{data ? data.user : ""}</span>
             </div>
             <div className='infoItem'>
                 <span>Placa</span>
-                <span>name</span>
+                <span>{data ? data.placa : ""}</span>
             </div>
         </div>
     )

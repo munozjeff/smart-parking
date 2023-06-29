@@ -45,9 +45,13 @@ function Vigilante(){
                 <div className="cards-container">
                     <YellowCircle
                         text="Permitir acceso"
+                        access="south"
+                        value={true}
                     />
                     <YellowCircle
                         text="Permitir salida"
+                        access="north"
+                        value={true}
                     />
                 </div>
             </div>

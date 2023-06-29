@@ -8,6 +8,8 @@ import { YellowCircle } from "../YellowCircle";
 const QrScan = () => {
   const [scanResult,setScanResult] = useState(null)
   const [scanner,setScanner] = useState(null)
+  const [access,setAccess] = useState(false)
+  const [qrData,setQrData] = useState(null)
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -36,7 +38,10 @@ const QrScan = () => {
   },[scanner])
   useEffect(() => {
     if (scanResult) {
-      navigate("/vigilante")
+      const data = JSON.parse(scanResult)
+      setAccess(false)
+      setQrData(data)
+      console.log(data.user);
     }
   }, [scanResult, navigate])
   return(
@@ -48,16 +53,16 @@ const QrScan = () => {
         :<div id="reader" style={{width:"70vw",height:"70vw"}}></div>
       } */}
       <div id="reader" style={{width:"70vw",height:"70vw",margin:"auto"}}></div>
-      <ViewInfoQr/>
+      <ViewInfoQr data={qrData}/>
       <div className="servicios">
                 <div className="cards-container">
                   <YellowCircle
                       text="Permitir acceso"
-                      enable={false}
+                      enable={access}
                   />
                     <YellowCircle
                         text="Permitir salida"
-                        enable={true}
+                        enable={access}
                     />
                 </div>
       </div>
