@@ -50,6 +50,7 @@ function Motociclista(){
                     />
                     <RedCircle
                         text="Alertar mal parqueo"
+                        link="/enviar-reporte"
                     />
                 </div>
 
