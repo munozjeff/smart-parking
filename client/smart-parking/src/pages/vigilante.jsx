@@ -23,12 +23,12 @@ function Vigilante(){
             <div className="cards-container">
 
                 <WhiteCard
-                    imagen={`./src/assets/QR.png`}
+                    imagen={`https://i.imgur.com/BOCDufH.png`}
                     text={"Scan QR"}
                     link="/qrScanner"
                 />
                 <WhiteCard
-                    imagen={`./src/assets/QuestionMark.png`}
+                    imagen={`https://i.imgur.com/snfT9Pr.png`}
                     text={"Espacios disponibles"}
                 />
             </div>
@@ -52,7 +52,7 @@ function Vigilante(){
                 </div>
             </div>
             <figure>
-                <img src="./src/assets/moto.png" alt="" />
+                <img src="https://i.imgur.com/zzitcUU.png" alt="" />
             </figure>
         </div>  
     )
