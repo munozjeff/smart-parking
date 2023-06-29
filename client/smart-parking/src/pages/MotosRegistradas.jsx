@@ -11,36 +11,36 @@ const MotosRegistradas = ()=>{
     const [dataUser, setDataUser] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
 
-    // useEffect(()=>{
-    //     const motosDB = getFirestore();
-    //     const queryCollection = collection(motosDB,'motos');
+    useEffect(()=>{
+        const motosDB = getFirestore();
+        const queryCollection = collection(motosDB,'motos');
 
-    //     getDocs(queryCollection)
-    //     .then((QuerySnapshot)=>{
-    //         const datosMotos =[];
-    //         QuerySnapshot.forEach((doc)=>{
-    //             const datos = doc.data();
-    //             datosMotos.push(datos);
-    //         });
-    //         setMotos(datosMotos);
-    //         console.log(datosMotos);
-    //     })
-    // },[])
+        getDocs(queryCollection)
+        .then((QuerySnapshot)=>{
+            const datosMotos =[];
+            QuerySnapshot.forEach((doc)=>{
+                const datos = doc.data();
+                datosMotos.push(datos);
+            });
+            setMotos(datosMotos);
+            console.log(datosMotos);
+        })
+    },[])
 
-    // useEffect(() => {
-    //     const auth = getAuth();
-    //     const unsubscribe = onAuthStateChanged(auth, (user) => {
-    //       if (user) {
-    //         setCurrentUser(user);
-    //       } else {
-    //         setCurrentUser(null);
-    //       }
-    //     });
+    useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          if (user) {
+            setCurrentUser(user);
+          } else {
+            setCurrentUser(null);
+          }
+        });
     
-    //     return () => {
-    //       unsubscribe();
-    //     };
-    //   }, []);
+        return () => {
+          unsubscribe();
+        };
+      }, []);
 
     return(
         <>
