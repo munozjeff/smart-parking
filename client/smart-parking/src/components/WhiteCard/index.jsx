@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import './WhiteCard.css'
 import { useNavigate} from "react-router-dom";
 
@@ -6,7 +6,7 @@ function WhiteCard(props){
     const navigate = useNavigate()
     const handlerOnClick=()=>{
         navigate(props.link)
-        console.log(props.link);
+        console.log(dataUser);
     }
     return(
 

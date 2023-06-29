@@ -9,10 +9,10 @@ import { AuthContext } from '../components/AuthProvider/AuthContext';
 
 const LoginUser = ()=>{   
     const [sesion,setSesion] = useState(null)
-    const [dataUser,setDataUser] = useState(null)
+    // const [dataUser,setDataUser] = useState(null)
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-    const { logIn } = useContext(AuthContext);
+    const { logIn, dataUser } = useContext(AuthContext);
     let navigate = useNavigate();
     const handlerOnChangueEmail=()=>{
         const email = event.target.value
@@ -23,11 +23,7 @@ const LoginUser = ()=>{
         setPassword(password)
     }
     const hanlderLogIn= async ()=>{
-        const dataLogin = {
-            email: email,
-            password: password
-        }
-        const result = await logIn(email, password);;
+        const result = await logIn(email, password);
         setSesion(result)
     }
     useEffect(()=>{
@@ -35,21 +31,19 @@ const LoginUser = ()=>{
         auth.signOut()
     },[])
 
-    useEffect(()=>{
-        if(sesion != null){
-            async function load(uid){
-                    const load = await loadData(uid)
-                    setDataUser(load)
-            }
-            load(sesion.uid)
-            // setdataUser(load(sesion.uid))
-        }
-    },[sesion])
+    // useEffect(()=>{
+    //     if(sesion != null){
+    //         async function load(uid){
+    //                 const load = await loadData(uid)
+    //                 setDataUser(load)
+    //         }
+    //         load(sesion.uid)
+    //         setDataUser(load(sesion.uid))
+    //     }
+    // },[sesion])
 
     useEffect(()=>{
         if(dataUser){
-            console.log(dataUser);
-            console.log(dataUser.rol);
             if(dataUser.rol === "motociclista"){
                 navigate("/motociclista")
             }

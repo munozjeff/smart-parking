@@ -2,6 +2,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence } from 'firebase/auth';
+import { loadData } from '../firebase/firebase'; 
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyC_zWbgykQZFZgwO5yTD_X5BZgpUvWexVU",
@@ -20,6 +22,18 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [dataUser, setDataUser] = useState(null);
+
+  useEffect(()=>{
+    if(currentUser){
+      async function load(uid){
+              const load = await loadData(uid)
+              setDataUser(load)
+      }
+      // load(sesion.uid)
+      setDataUser(load(currentUser.uid))
+    }
+  },[currentUser])
 
   useEffect(() => {
     setPersistence(auth, browserSessionPersistence)
@@ -35,15 +49,14 @@ export const AuthProvider = ({ children }) => {
       });
   }, []);
 
-  const logIn = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password)
+  const logIn = async (email, password) => {
+    return await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             const result={
                 sesion: true,
                 uid: user.uid,
-                rol: user.rol,
                 massage: "Se inicio sesión"
             }
             return result
@@ -67,6 +80,7 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     currentUser,
+    dataUser,
     logIn,
     logOut,
   };

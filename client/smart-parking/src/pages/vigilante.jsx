@@ -1,6 +1,5 @@
 import React, {useContext}from "react";
 import { WhiteCard } from "../components/WhiteCard";
-import { YellowCard } from "../components/YellowCard";
 import { YellowCircle } from "../components/YellowCircle";
 import { RedCircle } from "../components/RedCircle";
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +9,7 @@ import { AuthContext } from "../components/AuthProvider/AuthContext";
 function Vigilante(){
     const { currentUser } = useContext(AuthContext);
     if (currentUser){
-        console.log(currentUser);
+        //console.log(currentUser);
     }
     const navigate = useNavigate()
     return(
