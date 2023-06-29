@@ -32,7 +32,7 @@ function Motociclista(){
                     text={"Moto"}
                     link={"/motos-registradas"}
 
-                />    
+                />
 
                 <WhiteCard
                 imagen={`./src/assets/QuestionMark.png`}
@@ -56,9 +56,7 @@ function Motociclista(){
 
             </div>
         </div>
-        
-            
-        
+
     )
 
 }

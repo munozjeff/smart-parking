@@ -37,7 +37,9 @@ function RegistrarMotocicleta(){
                 <input id="placa" value={form.placa || ""} name="placa" className="inputs" type="text" placeholder="Ingresa Placa" onChange={handlerFormData}></input>
                 <input id="tarjeta" value={form.tarjeta || ""} name="tarjeta" className="inputs" type="file" placeholder="Tarjeta de Propiedad" alt="imagen" onChange={handlerFormData}></input>
                 <input src="./src/assets/files.png" id="motoImage" value={form.motoImage || ""} name="motoImage" className="inputs" type="file" placeholder="Imagen de la moto" alt="imagen" onChange={handlerFormData}></input>
-                <input id="passwordRegister"  value={form.passwordRegister || ""} name="passwordRegister" className="inputs" type="password" placeholder="Verificar Contraseña" onChange={handlerFormData}></input>
+                <input id="emailRegister"  value={form.emailRegister || ""} name="emailRegister" className="inputs" type="text" placeholder="Verificar email" onChange={handlerFormData}></input>
+
+                
                 <button id="btn-submit" type="submit"> Registar Motocicleta</button>
 
 
